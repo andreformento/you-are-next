@@ -3,7 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+#GET     /                           controllers.Application.index()
+
+GET     /                           controllers.IngressoRapidoController.filaDeEspera()
+GET     /queue/start/:eventoId      controllers.QueueController.start(eventoId: Long)
+GET     /queue/send/:eventoId       controllers.QueueController.send(eventoId: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,0 +1,19 @@
+@(evento: model.Evento)
+
+@template("Lista de espera") {
+
+<section>
+    <div class="container">
+        <h1>Aguardando na fila de espera para comprar</h1>
+
+        <form action="@routes.QueueController.send(evento.getId())" method="post">
+            <ul>
+                <li>@evento.getId()</li>
+                <li>@evento.getNome()</li>
+            </ul>
+        </form>
+    </div>
+</section>
+
+
+}

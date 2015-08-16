@@ -1,0 +1,28 @@
+@(eventos: Collection[model.Evento])
+
+@main("Ingresso rápido") {
+
+<table class="table">
+    <caption>Eventos</caption>
+    <thead>
+    <tr>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @for(evento <- eventos) {
+            <tr class=""> <!--info-->
+                <td>@evento.getId()</td>
+                <td>@evento.getNome()</td>
+                <td>
+                    <a href="@routes.QueueController.start(evento.getId())" class="btn btn-primary btn-sm active" role="button">Comprar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    </thead>
+
+</table>
+
+}
